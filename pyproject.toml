@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "archiver"
+version = "0.1.0"
+description = "A CLI tool for archiving repositories"
+authors = ["Dragos Dumitrache <dragos@afterburner.dev>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+zen-core = "^0.2.3"
+click = "^8.0.3"
+toml = "^0.10.2"
+
+[tool.poetry.scripts]
+archiver = "archiver.main:main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
