@@ -29,4 +29,4 @@ jobs:
           GITHUB_URL: "github.com"
           GITHUB_TOKEN: "${{ secrets.GIT_TOKEN }}"
         run: |
-          poetry run archiver --dry-run ./data
+          poetry run archiver apply --dry-run ./data
