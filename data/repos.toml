@@ -1,0 +1,5 @@
+[repository]
+names = [
+    "git-sentry/Test",
+    "git-sentry/archiver-job",
+]

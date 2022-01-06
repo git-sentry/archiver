@@ -1,0 +1,29 @@
+name: Build
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.7
+      - name: Install and configure Poetry
+        uses: snok/install-poetry@v1.1.6
+        with:
+          version: 1.1.10
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+          virtualenvs-path: ~/.cache/virtualenvs
+
+      - name: Install dependencies
+        run: |
+          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+          poetry install --no-interaction
+      - name: Run dry-run
+        run: |
+          poetry run archiver --help 
