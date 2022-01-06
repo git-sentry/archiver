@@ -22,8 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
           poetry install --no-interaction
       - name: Run dry-run
         run: |
-          poetry run archiver --help 
+          poetry run archiver --help
