@@ -24,14 +24,14 @@ jobs:
         run: |
           poetry install --no-interaction
       - name: Run dry-run
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'pull_request'
         env:
           GIT_URL: "github.com"
           GIT_TOKEN: "${{ secrets.GIT_TOKEN }}"
         run: |
           poetry run archiver apply --dry-run ./data
       - name: Run apply for real
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         env:
           GIT_URL: "github.com"
           GIT_TOKEN: "${{ secrets.GIT_TOKEN }}"
