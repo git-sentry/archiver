@@ -24,5 +24,9 @@ jobs:
         run: |
           poetry install --no-interaction
       - name: Run dry-run
+        if: github.event_name != 'pull_request'
+        env:
+          GITHUB_URL="github.com"
+          GITHUB_TOKEN="${{ secrets.GIT_TOKEN }}"
         run: |
-          poetry run archiver --help
+          poetry run archiver --dry-run ./data

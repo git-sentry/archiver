@@ -198,7 +198,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [[package]]
 name = "zen-core"
-version = "0.2.4"
+version = "0.2.7"
 description = "Github API zen core utilities"
 category = "main"
 optional = false
@@ -210,8 +210,8 @@ click = ">=8.0.1,<9.0.0"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "6e1532e4a81b65c96b1ecd2978a2c0ed7ab528ae2f56975539bf3203a07d2863"
+python-versions = "^3.9"
+content-hash = "38c80f195d55008fdf70348dd72ff5ba22a15bfc72e3d39eaa38734d1d8ca031"
 
 [metadata.files]
 certifi = [
@@ -402,6 +402,6 @@ wrapt = [
     {file = "wrapt-1.13.3.tar.gz", hash = "sha256:1fea9cd438686e6682271d36f3481a9f3636195578bab9ca3382e2f5f01fc185"},
 ]
 zen-core = [
-    {file = "zen-core-0.2.4.tar.gz", hash = "sha256:6e3a8c2c0d025f4297a630337b552522fd0045a1cea53569dd1b1ef659108b5a"},
-    {file = "zen_core-0.2.4-py3-none-any.whl", hash = "sha256:5b5d8a3155f543bbb0a200c7f45e4f033131fc3d80e197d0c0f00106c974b04e"},
+    {file = "zen-core-0.2.7.tar.gz", hash = "sha256:ff73045fc6efaf305743bd6b4cc5f6fda4ac4323bf50f15baf2aec1ed86778da"},
+    {file = "zen_core-0.2.7-py3-none-any.whl", hash = "sha256:437d46436ca59b7a9d475e2159d41a9be01dbe3c22c0ade1df1e482941fee644"},
 ]

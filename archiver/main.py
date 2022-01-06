@@ -8,15 +8,16 @@ from zen_core.parsing.toml_parser import parse_repo_configuration
 
 def apply_configuration(git_client, repo_configurations, dry_run):
     for repo_name, repo_configuration in repo_configurations.items():
-        matching_repos = git_client.search_repos(f'git-sentry/{repo_name}')
-
-        for repo in matching_repos:
+        repo = git_client.get_repo(repo_name)
+        if repo:
             if dry_run:
                 if not repo.archived():
                     print(f'{repo.full_name()}: {repo.archived()} -> True')
             else:
                 repo.archive()
                 print(f'{repo.full_name()} - {repo.archived()}')
+        else:
+            print(f'No repository matching {repo_name} found')
 
 
 @click.group()
