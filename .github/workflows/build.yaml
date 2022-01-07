@@ -24,9 +24,21 @@ jobs:
         run: |
           poetry install --no-interaction
       - name: Run dry-run
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'pull_request'
         env:
           GIT_URL: "github.com"
           GIT_TOKEN: "${{ secrets.GIT_TOKEN }}"
         run: |
           poetry run archiver apply --dry-run ./data
+#      - name: Danger JS Action
+#        env:
+#          GITHUB_TOKEN: "${{ secrets.GIT_TOKEN }}"
+#        if: github.event_name == 'pull_request'
+#        uses: danger/danger-js@9.1.8
+      - name: Run apply for real
+        if: github.ref == 'refs/heads/main'
+        env:
+          GIT_URL: "github.com"
+          GIT_TOKEN: "${{ secrets.GIT_TOKEN }}"
+        run: |
+          poetry run archiver apply ./data
